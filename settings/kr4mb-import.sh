@@ -20,6 +20,8 @@ $cli set private.vim_for_finder 1
 /bin/echo -n .
 $cli set private.vim_for_google_chrome 1
 /bin/echo -n .
+$cli set private.vim_for_sublime_text 1
+/bin/echo -n .
 $cli set option.browsingmode_jk_scrollwheel 1
 /bin/echo -n .
 $cli set option.vimode_option_hjkl 1

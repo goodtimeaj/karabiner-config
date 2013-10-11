@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <root>
   <item>
-    <name>PC Application Key to Control_L or Escape</name>
+    <name>PC Application Key to Control or Escape</name>
     <appendix>PC Application Key acts as Control or acts as Escape when not used as a modifier.</appendix>
     <identifier>private.pc_application_to_escape</identifier>
     <autogen>
@@ -12,7 +12,7 @@
     </autogen>
   </item>
   <item>
-    <name>Control_L+Space to Command_L+Space</name>
+    <name>Control_L+Space to Command+Space</name>
     <appendix>Aliases Control+Space as Command+Space for use with Spotlight, Alfred.</appendix>
     <identifier>private.control_l_space_to_command_l_space</identifier>
     <autogen>
@@ -26,15 +26,23 @@
     <appendix>Aliases Command+Bracket as Command+Shift+Bracket for common tabbable apps.</appendix>
     <identifier>private.shortcut_command_shift_bracket</identifier>
     <only>TERMINAL,GOOGLE_CHROME,SUBLIMETEXT</only>
+    <!-- Alias for Bracket_L -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
       KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
     </autogen>
+    <!-- Alias for Bracket_R -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+    </autogen>
+    <!-- Disable Command_R+P because proximity to Command+Bracket -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::P, ModifierFlag::COMMAND_R,
+      KeyCode::VK_NONE
     </autogen>
   </item>
   <item>
@@ -147,7 +155,7 @@
       KeyCode::N, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
       KeyCode::G, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_R
     </autogen>
-    <!-- Go To Page with Ctrl+p -->
+    <!-- Go to Page with Ctrl+p -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
@@ -213,13 +221,13 @@
       KeyCode::G, ModifierFlag::CONTROL_L,
       KeyCode::DOT, ModifierFlag::CONTROL_L
     </autogen>
-    <!-- Go To Enclosing Folder with Ctrl+Delete -->
+    <!-- Go to Enclosing Folder with Ctrl+Delete -->
     <autogen>
       __KeyToKey__
       KeyCode::DELETE, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Go To Folder with Ctrl+p -->
+    <!-- Go to Folder with Ctrl+p -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
@@ -248,18 +256,6 @@
       KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
       KeyCode::DELETE
     </autogen>
-    <!-- Down with Ctrl+n -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::N, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_DOWN
-    </autogen>
-    <!-- Up with Ctrl+p -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::P, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_UP
-    </autogen>
     <!-- Go to End of Location Bar with Ctrl+r -->
     <autogen>
       __KeyToKey__
@@ -287,6 +283,30 @@
       __KeyToKey__
       KeyCode::K, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP
+    </autogen>
+    <!-- Go to Location Bar with Ctrl+p -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::P, ModifierFlag::CONTROL_L,
+      KeyCode::L, ModifierFlag::COMMAND_L
+    </autogen>
+  </item>
+  <item>
+    <name>Vim for Sublime Text</name>
+    <appendix>Provides some Vim-like bindings for Sublime Text.</appendix>
+    <identifier>private.vim_for_sublime_text</identifier>
+    <only>SUBLIMETEXT</only>
+    <!-- Ctrl+Command+p is Cmd+Shift+p -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::P, ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+      KeyCode::P, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
+    </autogen>
+    <!-- Ctrl+p is Cmd+p -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::P, ModifierFlag::CONTROL_L,
+      KeyCode::P, ModifierFlag::COMMAND_L
     </autogen>
   </item>
 </root>
