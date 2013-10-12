@@ -191,10 +191,10 @@
       KeyCode::L, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_RIGHT
     </autogen>
-    <!-- Search with / -->
+    <!-- Search with Ctrl+/ -->
     <autogen>
       __KeyToKey__
-      KeyCode::SLASH,
+      KeyCode::SLASH, ModifierFlag::CONTROL_L,
       KeyCode::F, ModifierFlag::COMMAND_L
     </autogen>
     <!-- Search Next with Ctrl+n -->
@@ -246,15 +246,13 @@
     <autogen>
       __KeyToKey__
       KeyCode::W, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L,
-      KeyCode::DELETE
+      KeyCode::DELETE, ModifierFlag::OPTION_L
     </autogen>
     <!-- Delete Previous Line with Ctrl+u -->
     <autogen>
       __KeyToKey__
       KeyCode::U, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
-      KeyCode::DELETE
+      KeyCode::DELETE, ModifierFlag::COMMAND_L
     </autogen>
     <!-- Go to End of Location Bar with Ctrl+r -->
     <autogen>
@@ -296,7 +294,7 @@
     <appendix>Provides some Vim-like bindings for Sublime Text.</appendix>
     <identifier>private.vim_for_sublime_text</identifier>
     <only>SUBLIMETEXT</only>
-    <!-- Ctrl+Command+p is Cmd+Shift+p -->
+    <!-- Ctrl+Cmd+p is Cmd+Shift+p -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
