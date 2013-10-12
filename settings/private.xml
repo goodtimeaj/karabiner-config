@@ -46,9 +46,9 @@
     </autogen>
   </item>
   <item>
-    <name>Use Correct Command_R</name>
+    <name>Use Correct Command</name>
     <appendix>Forces use of Command_R as the correct Command for some keys on the left side.</appendix>
-    <identifier>private.correct_command_r</identifier>
+    <identifier>private.correct_command</identifier>
     <autogen>
       __KeyToKey__
       KeyCode::TAB, ModifierFlag::COMMAND_L,
@@ -113,25 +113,25 @@
     <appendix>Provides some Vim-like bindings for Preview.</appendix>
     <identifier>private.vim_for_preview</identifier>
     <only>PREVIEW</only>
-    <!-- Down with Ctrl+j -->
+    <!-- Down with Ctrl+J -->
     <autogen>
       __KeyToKey__
       KeyCode::J, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN
     </autogen>
-    <!-- Up with Ctrl+k -->
+    <!-- Up with Ctrl+K -->
     <autogen>
       __KeyToKey__
       KeyCode::K, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP
     </autogen>
-    <!-- Page Down with Ctrl+d -->
+    <!-- Page Down with Ctrl+D -->
     <autogen>
       __KeyToKey__
       KeyCode::D, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L
     </autogen>
-    <!-- Page Up with Ctrl+u -->
+    <!-- Page Up with Ctrl+U -->
     <autogen>
       __KeyToKey__
       KeyCode::U, ModifierFlag::CONTROL_L,
@@ -143,19 +143,19 @@
       KeyCode::SLASH,
       KeyCode::F, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Next with Ctrl+n -->
+    <!-- Search Next with Ctrl+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L,
       KeyCode::G, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Previous with Ctrl+Shift+n -->
+    <!-- Search Previous with Ctrl+Shift+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
       KeyCode::G, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_R
     </autogen>
-    <!-- Go to Page with Ctrl+p -->
+    <!-- Go to Page with Ctrl+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
@@ -167,25 +167,25 @@
     <appendix>Provides some Vim-like bindings for Finder.</appendix>
     <identifier>private.vim_for_finder</identifier>
     <only>FINDER</only>
-    <!-- Down with Ctrl+j -->
+    <!-- Down with Ctrl+J -->
     <autogen>
       __KeyToKey__
       KeyCode::J, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN
     </autogen>
-    <!-- Up with Ctrl+k -->
+    <!-- Up with Ctrl+K -->
     <autogen>
       __KeyToKey__
       KeyCode::K, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP
     </autogen>
-    <!-- Close Folder with Ctrl+h -->
+    <!-- Close Folder with Ctrl+H -->
     <autogen>
       __KeyToKey__
       KeyCode::H, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_LEFT
     </autogen>
-    <!-- Open Folder with Ctrl+l -->
+    <!-- Open Folder with Ctrl+L -->
     <autogen>
       __KeyToKey__
       KeyCode::L, ModifierFlag::CONTROL_L,
@@ -197,25 +197,25 @@
       KeyCode::SLASH, ModifierFlag::CONTROL_L,
       KeyCode::F, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Next with Ctrl+n -->
+    <!-- Search Next with Ctrl+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L,
       KeyCode::G, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Previous with Ctrl+Shift+n -->
+    <!-- Search Previous with Ctrl+Shift+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
       KeyCode::G, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_R
     </autogen>
-    <!-- Bottom of List with Ctrl+Shift+g -->
+    <!-- Bottom of List with Ctrl+Shift+G -->
     <autogen>
       __KeyToKey__
       KeyCode::G, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::CONTROL_L,
       KeyCode::Z, ModifierFlag::CONTROL_L
     </autogen>
-    <!-- Top of List with Ctrl+g -->
+    <!-- Top of List with Ctrl+G -->
     <autogen>
       __KeyToKey__
       KeyCode::G, ModifierFlag::CONTROL_L,
@@ -227,7 +227,7 @@
       KeyCode::DELETE, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Go to Folder with Ctrl+p -->
+    <!-- Go to Folder with Ctrl+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
@@ -235,58 +235,123 @@
     </autogen>
   </item>
   <item>
-    <name>Readline for Google Chrome</name>
-    <appendix>Fills in some missing readline bindings for Google Chrome.</appendix>
-    <identifier>private.readline_for_google_chrome</identifier>
-    <only>GOOGLE_CHROME</only>
+    <name>Readline for Browsers</name>
+    <appendix>Fills in some missing readline bindings for browsers.</appendix>
+    <identifier>private.readline_for_browsers</identifier>
+    <only>GOOGLE_CHROME,FIREFOX,SAFARI,OPERA</only>
 
-    <!-- Note that Ctrl+a, Ctrl+e, Ctrl+k, Ctrl+b, Ctrl+f, Ctrl+h already work -->
+    <!-- Note that Ctrl+A, Ctrl+E, Ctrl+B, Ctrl+F, Ctrl+H already work -->
 
-    <!-- Delete Previous Word with Ctrl+w -->
+    <!-- Delete Previous Word with Ctrl+W -->
     <autogen>
       __KeyToKey__
       KeyCode::W, ModifierFlag::CONTROL_L,
-      KeyCode::DELETE, ModifierFlag::OPTION_L
+      KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L,
+      KeyCode::DELETE
     </autogen>
-    <!-- Delete Previous Line with Ctrl+u -->
+    <!-- Delete Line to Beginning with Ctrl+U -->
     <autogen>
       __KeyToKey__
       KeyCode::U, ModifierFlag::CONTROL_L,
-      KeyCode::DELETE, ModifierFlag::COMMAND_L
+      KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      KeyCode::DELETE
     </autogen>
-    <!-- Go to End of Location Bar with Ctrl+r -->
+    <!-- Go to End of Address Bar with Ctrl+R -->
     <autogen>
       __KeyToKey__
       KeyCode::R, ModifierFlag::CONTROL_L,
       KeyCode::L, ModifierFlag::COMMAND_L,
       KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
     </autogen>
+    <!-- Exit Address Bar with Ctrl+G -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::G, ModifierFlag::CONTROL_L,
+      KeyCode::ESCAPE,
+      KeyCode::TAB,
+      KeyCode::TAB,
+      KeyCode::ESCAPE
+    </autogen>
   </item>
   <item>
-    <name>Vim for Google Chrome</name>
-    <appendix>Provides some Vim-like bindings for Google Chrome.</appendix>
-    <identifier>private.vim_for_google_chrome</identifier>
-    <only>GOOGLE_CHROME</only>
+    <name>Vim for browsers</name>
+    <appendix>Provides some Vim-like bindings for browsers.</appendix>
+    <identifier>private.vim_for_browsers</identifier>
+    <only>GOOGLE_CHROME,FIREFOX,SAFARI,OPERA</only>
 
-    <!-- Some sites override j and k bindings used in Vimium, so use these -->
+    <!-- Some sites override J and K bindings used in Vimium, so use these -->
 
-    <!-- Down with Ctrl+j -->
+    <!-- Left with Ctrl+H -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::H, ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_LEFT
+    </autogen>
+    <!-- Down with Ctrl+J -->
     <autogen>
       __KeyToKey__
       KeyCode::J, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN
     </autogen>
-    <!-- Up with Ctrl+k -->
+    <!-- Up with Ctrl+K -->
     <autogen>
       __KeyToKey__
       KeyCode::K, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP
     </autogen>
-    <!-- Go to Location Bar with Ctrl+p -->
+    <!-- Right with Ctrl+L -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::L, ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_RIGHT
+    </autogen>
+    <!-- Go to Address Bar with Ctrl+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
       KeyCode::L, ModifierFlag::COMMAND_L
+    </autogen>
+    <!-- Yank with Ctrl+C -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::C, ModifierFlag::CONTROL_L,
+      KeyCode::C, ModifierFlag::COMMAND_R
+    </autogen>
+    <!-- Yank Current Line with Ctrl+D -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::D, ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      KeyCode::C, ModifierFlag::COMMAND_R
+    </autogen>
+    <!-- Yank Address Bar with Ctrl+Y -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::Y, ModifierFlag::CONTROL_L,
+      KeyCode::L, ModifierFlag::COMMAND_R,
+      KeyCode::C, ModifierFlag::COMMAND_R,
+      KeyCode::TAB,
+      KeyCode::TAB,
+      KeyCode::ESCAPE
+    </autogen>
+    <!-- Paste with Ctrl+V -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::V, ModifierFlag::CONTROL_L,
+      KeyCode::V, ModifierFlag::COMMAND_R
+    </autogen>
+    <!-- Back History with Ctrl+[ -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_LEFT, ModifierFlag::CONTROL_L,
+      KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R
+    </autogen>
+    <!-- Forward History with Ctrl+] -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_RIGHT, ModifierFlag::CONTROL_L,
+      KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
     </autogen>
   </item>
   <item>
@@ -294,13 +359,13 @@
     <appendix>Provides some Vim-like bindings for Sublime Text.</appendix>
     <identifier>private.vim_for_sublime_text</identifier>
     <only>SUBLIMETEXT</only>
-    <!-- Ctrl+Cmd+p is Cmd+Shift+p -->
+    <!-- Ctrl+Cmd+P is Cmd+Shift+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
       KeyCode::P, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
     </autogen>
-    <!-- Ctrl+p is Cmd+p -->
+    <!-- Ctrl+P is Cmd+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,

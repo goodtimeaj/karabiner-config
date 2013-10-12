@@ -8,17 +8,17 @@ $cli set private.control_l_space_to_command_l_space 1
 /bin/echo -n .
 $cli set private.shortcut_command_shift_bracket 1
 /bin/echo -n .
-$cli set private.correct_command_r 1
+$cli set private.correct_command 1
 /bin/echo -n .
 $cli set private.shifts_to_parens 1
-/bin/echo -n .
-$cli set private.readline_for_google_chrome 1
 /bin/echo -n .
 $cli set private.vim_for_preview 1
 /bin/echo -n .
 $cli set private.vim_for_finder 1
 /bin/echo -n .
-$cli set private.vim_for_google_chrome 1
+$cli set private.readline_for_browsers 1
+/bin/echo -n .
+$cli set private.vim_for_browsers 1
 /bin/echo -n .
 $cli set private.vim_for_sublime_text 1
 /bin/echo -n .
