@@ -25,7 +25,7 @@
     <name>Command+Bracket to Command+Shift+Bracket</name>
     <appendix>Aliases Command+Bracket as Command+Shift+Bracket for common tabbable apps.</appendix>
     <identifier>private.shortcut_command_shift_bracket</identifier>
-    <only>TERMINAL,GOOGLE_CHROME,SUBLIMETEXT</only>
+    <only>TERMINAL,GOOGLE_CHROME,FIREFOX,SAFARI,OPERA,SUBLIMETEXT</only>
     <!-- Alias for Bracket_L -->
     <autogen>
       __KeyToKey__
