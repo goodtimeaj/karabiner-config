@@ -2,9 +2,9 @@
 
 cli=/Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli
 
-$cli set private.pc_application_to_escape 1
+$cli set private.spotlight_mode 1
 /bin/echo -n .
-$cli set private.control_l_space_to_command_l_space 1
+$cli set private.pc_application_to_escape 1
 /bin/echo -n .
 $cli set private.shortcut_command_shift_bracket 1
 /bin/echo -n .
@@ -21,8 +21,6 @@ $cli set private.readline_for_browsers 1
 $cli set private.vim_for_browsers 1
 /bin/echo -n .
 $cli set private.vim_for_sublime_text 1
-/bin/echo -n .
-$cli set private.spotlight_mode 1
 /bin/echo -n .
 $cli set option.browsingmode_jk_scrollwheel 1
 /bin/echo -n .

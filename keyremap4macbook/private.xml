@@ -1,6 +1,127 @@
 <?xml version="1.0"?>
 <root>
   <item>
+    <name>Spotlight Mode</name>
+    <appendix>Doubles the execution of Escape when Spotlight is enabled with Command+Space.</appendix>
+    <identifier>private.spotlight_mode</identifier>
+
+    <block>
+      <!-- When Spotlight Mode is inactive  -->
+      <config_not>notsave.private_spotlight_mode</config_not>
+
+      <!-- PC Application Key acts as Ctrl or acts as Escape when not used as a modifier -->
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::PC_APPLICATION,
+        KeyCode::CONTROL_L,
+        KeyCode::ESCAPE
+      </autogen>
+
+      <!-- Enable Spotlight Mode with Ctrl+Space -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SPACE, ModifierFlag::CONTROL_L,
+
+        KeyCode::SPACE, ModifierFlag::COMMAND_L,
+        KeyCode::VK_CONFIG_FORCE_ON_notsave_private_spotlight_mode,
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Enable Spotlight Mode with Cmd+Space -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
+
+        KeyCode::SPACE, ModifierFlag::COMMAND_L,
+        KeyCode::VK_CONFIG_FORCE_ON_notsave_private_spotlight_mode,
+        Option::NOREPEAT
+      </autogen>
+    </block>
+
+    <block>
+      <!-- When Spotlight Mode is active -->
+      <config_only>notsave.private_spotlight_mode</config_only>
+
+      <!-- Disable Spotlight Mode with Return -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::RETURN,
+
+        KeyCode::RETURN,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Close Spotlight and disable Spotlight Mode with Escape -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::ESCAPE,
+
+        KeyCode::ESCAPE,
+        KeyCode::ESCAPE,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Close Spotlight and disable Spotlight Mode with PC_APPLICATION when not used as a modifier -->
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::PC_APPLICATION,
+
+        KeyCode::CONTROL_L,
+
+        KeyCode::ESCAPE,
+        KeyCode::ESCAPE,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Close Spotlight and disable Spotlight Mode with Ctrl+Space -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SPACE, ModifierFlag::CONTROL_L,
+
+        KeyCode::ESCAPE,
+        KeyCode::ESCAPE,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Disable Spotlight Mode with Cmd+Space -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
+
+        KeyCode::ESCAPE,
+        KeyCode::ESCAPE,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Down with Ctrl+J -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::J, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_DOWN
+      </autogen>
+
+      <!-- Up with Ctrl+K -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::K, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_UP
+      </autogen>
+    </block>
+  </item>
+  <item hidden="true">
+    <identifier vk_config="true">notsave.private_spotlight_mode</identifier>
+    <autogen>__ShowStatusMessage__ Spotlight Mode</autogen>
+  </item>
+  <item>
     <name>PC Application Key to Control or Escape</name>
     <appendix>PC Application Key acts as Control or acts as Escape when not used as a modifier.</appendix>
     <identifier>private.pc_application_to_escape</identifier>
@@ -12,33 +133,26 @@
     </autogen>
   </item>
   <item>
-    <name>Control_L+Space to Command+Space</name>
-    <appendix>Aliases Control+Space as Command+Space for use with Spotlight, Alfred.</appendix>
-    <identifier>private.control_l_space_to_command_l_space</identifier>
-    <autogen>
-      __KeyToKey__
-      KeyCode::SPACE, ModifierFlag::CONTROL_L,
-      KeyCode::SPACE, ModifierFlag::COMMAND_L
-    </autogen>
-  </item>
-  <item>
     <name>Command+Bracket to Command+Shift+Bracket</name>
     <appendix>Aliases Command+Bracket as Command+Shift+Bracket for common tabbable apps.</appendix>
     <identifier>private.shortcut_command_shift_bracket</identifier>
     <only>TERMINAL,GOOGLE_CHROME,FIREFOX,SAFARI,OPERA,SUBLIMETEXT</only>
+
     <!-- Alias for Bracket_L -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
       KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
     </autogen>
+
     <!-- Alias for Bracket_R -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
     </autogen>
-    <!-- Disable Command_R+P because proximity to Command+Bracket -->
+
+    <!-- Disable Cmd_R+P because proximity to Cmd+Bracket -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::COMMAND_R,
@@ -113,49 +227,57 @@
     <appendix>Provides some Vim-like bindings for Preview.</appendix>
     <identifier>private.vim_for_preview</identifier>
     <only>PREVIEW</only>
+
     <!-- Down with Ctrl+J -->
     <autogen>
       __KeyToKey__
       KeyCode::J, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN
     </autogen>
+
     <!-- Up with Ctrl+K -->
     <autogen>
       __KeyToKey__
       KeyCode::K, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP
     </autogen>
-    <!-- Page Down with Ctrl+D -->
+
+    <!-- Page down with Ctrl+D -->
     <autogen>
       __KeyToKey__
       KeyCode::D, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L
     </autogen>
-    <!-- Page Up with Ctrl+U -->
+
+    <!-- Page up with Ctrl+U -->
     <autogen>
       __KeyToKey__
       KeyCode::U, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP, ModifierFlag::OPTION_L
     </autogen>
+
     <!-- Search with / -->
     <autogen>
       __KeyToKey__
       KeyCode::SLASH,
       KeyCode::F, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Next with Ctrl+N -->
+
+    <!-- Search next with Ctrl+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L,
       KeyCode::G, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Previous with Ctrl+Shift+N -->
+
+    <!-- Search previous with Ctrl+Shift+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
       KeyCode::G, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_R
     </autogen>
-    <!-- Go to Page with Ctrl+P -->
+
+    <!-- Go to page with Ctrl+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
@@ -167,67 +289,78 @@
     <appendix>Provides some Vim-like bindings for Finder.</appendix>
     <identifier>private.vim_for_finder</identifier>
     <only>FINDER</only>
+
     <!-- Down with Ctrl+J -->
     <autogen>
       __KeyToKey__
       KeyCode::J, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN
     </autogen>
+
     <!-- Up with Ctrl+K -->
     <autogen>
       __KeyToKey__
       KeyCode::K, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP
     </autogen>
-    <!-- Close Folder with Ctrl+H -->
+
+    <!-- Close folder with Ctrl+H -->
     <autogen>
       __KeyToKey__
       KeyCode::H, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_LEFT
     </autogen>
-    <!-- Open Folder with Ctrl+L -->
+
+    <!-- Open folder with Ctrl+L -->
     <autogen>
       __KeyToKey__
       KeyCode::L, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_RIGHT
     </autogen>
+
     <!-- Search with Ctrl+/ -->
     <autogen>
       __KeyToKey__
       KeyCode::SLASH, ModifierFlag::CONTROL_L,
       KeyCode::F, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Next with Ctrl+N -->
+
+    <!-- Search next with Ctrl+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L,
       KeyCode::G, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Search Previous with Ctrl+Shift+N -->
+
+    <!-- Search previous with Ctrl+Shift+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
       KeyCode::G, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_R
     </autogen>
-    <!-- Bottom of List with Ctrl+Shift+G -->
+
+    <!-- Bottom of list with Ctrl+Shift+G -->
     <autogen>
       __KeyToKey__
       KeyCode::G, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_SHIFT | ModifierFlag::CONTROL_L,
       KeyCode::Z, ModifierFlag::CONTROL_L
     </autogen>
-    <!-- Top of List with Ctrl+G -->
+
+    <!-- Top of list with Ctrl+G -->
     <autogen>
       __KeyToKey__
       KeyCode::G, ModifierFlag::CONTROL_L,
       KeyCode::DOT, ModifierFlag::CONTROL_L
     </autogen>
-    <!-- Go to Enclosing Folder with Ctrl+Delete -->
+
+    <!-- Go to enclosing folder with Ctrl+Delete -->
     <autogen>
       __KeyToKey__
       KeyCode::DELETE, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP, ModifierFlag::COMMAND_L
     </autogen>
-    <!-- Go to Folder with Ctrl+P -->
+
+    <!-- Go to folder with Ctrl+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
@@ -242,31 +375,35 @@
 
     <!-- Note that Ctrl+A, Ctrl+E, Ctrl+B, Ctrl+F, Ctrl+H already work -->
 
-    <!-- Delete Previous Word with Ctrl+W -->
+    <!-- Delete previous word with Ctrl+W -->
     <autogen>
       __KeyToKey__
       KeyCode::W, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L,
       KeyCode::DELETE
     </autogen>
-    <!-- Delete Line to Beginning with Ctrl+U -->
+
+    <!-- Delete line to beginning with Ctrl+U -->
     <autogen>
       __KeyToKey__
       KeyCode::U, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
       KeyCode::DELETE
     </autogen>
-    <!-- Go to End of Address Bar with Ctrl+R -->
+
+    <!-- Go to end of Address Bar with Ctrl+R -->
     <autogen>
       __KeyToKey__
       KeyCode::R, ModifierFlag::CONTROL_L,
       KeyCode::L, ModifierFlag::COMMAND_L,
       KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
     </autogen>
+
     <!-- Exit Address Bar with Ctrl+G -->
     <autogen>
       __KeyToKey__
       KeyCode::G, ModifierFlag::CONTROL_L,
+
       KeyCode::ESCAPE,
       KeyCode::TAB,
       KeyCode::TAB,
@@ -287,67 +424,79 @@
       KeyCode::H, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_LEFT
     </autogen>
+
     <!-- Down with Ctrl+J -->
     <autogen>
       __KeyToKey__
       KeyCode::J, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_DOWN
     </autogen>
+
     <!-- Up with Ctrl+K -->
     <autogen>
       __KeyToKey__
       KeyCode::K, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_UP
     </autogen>
+
     <!-- Right with Ctrl+L -->
     <autogen>
       __KeyToKey__
       KeyCode::L, ModifierFlag::CONTROL_L,
       KeyCode::CURSOR_RIGHT
     </autogen>
+
     <!-- Go to Address Bar with Ctrl+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
       KeyCode::L, ModifierFlag::COMMAND_L
     </autogen>
+
     <!-- Yank with Ctrl+C -->
     <autogen>
       __KeyToKey__
       KeyCode::C, ModifierFlag::CONTROL_L,
       KeyCode::C, ModifierFlag::COMMAND_R
     </autogen>
-    <!-- Yank Current Line with Ctrl+D -->
+
+    <!-- Yank current line with Ctrl+D -->
     <autogen>
       __KeyToKey__
       KeyCode::D, ModifierFlag::CONTROL_L,
+
       KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
       KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
       KeyCode::C, ModifierFlag::COMMAND_R
     </autogen>
-    <!-- Yank Address Bar with Ctrl+Y -->
+
+    <!-- Yank Address Bar then exit with Ctrl+Y -->
     <autogen>
       __KeyToKey__
       KeyCode::Y, ModifierFlag::CONTROL_L,
+
       KeyCode::L, ModifierFlag::COMMAND_R,
       KeyCode::C, ModifierFlag::COMMAND_R,
       KeyCode::TAB,
       KeyCode::TAB,
       KeyCode::ESCAPE
     </autogen>
+
     <!-- Paste with Ctrl+V -->
     <autogen>
       __KeyToKey__
       KeyCode::V, ModifierFlag::CONTROL_L,
       KeyCode::V, ModifierFlag::COMMAND_R
     </autogen>
-    <!-- Back History with Ctrl+[ -->
+
+    <!-- Back history with Ctrl+[ -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_LEFT, ModifierFlag::CONTROL_L,
       KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R
     </autogen>
-    <!-- Forward History with Ctrl+] -->
+
+    <!-- Forward history with Ctrl+] -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_RIGHT, ModifierFlag::CONTROL_L,
@@ -359,76 +508,19 @@
     <appendix>Provides some Vim-like bindings for Sublime Text.</appendix>
     <identifier>private.vim_for_sublime_text</identifier>
     <only>SUBLIMETEXT</only>
+
     <!-- Ctrl+Cmd+P is Cmd+Shift+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
       KeyCode::P, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L
     </autogen>
+
     <!-- Ctrl+P is Cmd+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
       KeyCode::P, ModifierFlag::COMMAND_L
     </autogen>
-  </item>
-  <item>
-    <name>Spotlight Mode</name>
-    <appendix>Doubles the execution of Escape when Spotlight is enabled with Command+Space.</appendix>
-    <identifier>private.spotlight_mode</identifier>
-
-    <!-- Thanks: @tekezo https://github.com/tekezo/Files/blob/master/KeyRemap4MacBook/private.spotlight_mode/private.xml -->
-
-    <block>
-      <!-- When Spotlight Mode is inactive  -->
-      <config_not>notsave.private_spotlight_mode</config_not>
-
-      <!-- Turn Spotlight Mode on with Command+Space -->
-      <autogen>
-        __KeyToKey__
-        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
-        KeyCode::VK_CONFIG_FORCE_ON_notsave_private_spotlight_mode,
-        Option::NOREPEAT
-      </autogen>
-    </block>
-
-    <block>
-      <!-- When Spotlight Mode is active -->
-      <config_only>notsave.private_spotlight_mode</config_only>
-
-      <autogen>
-        __KeyToKey__
-        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
-        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
-        Option::NOREPEAT
-      </autogen>
-
-      <!-- Spotlight Mode will be disabled with Return -->
-      <autogen>
-        __KeyToKey__
-        KeyCode::RETURN,
-        KeyCode::RETURN,
-        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
-        Option::NOREPEAT
-      </autogen>
-
-      <!-- Close Spotlight with Escape -->
-      <autogen>
-        __KeyToKey__
-        KeyCode::ESCAPE,
-
-        KeyCode::ESCAPE,
-        KeyCode::ESCAPE,
-        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
-
-        Option::NOREPEAT
-      </autogen>
-    </block>
-  </item>
-  <item hidden="true">
-    <identifier vk_config="true">notsave.private_spotlight_mode</identifier>
-    <autogen>__ShowStatusMessage__ Spotlight Mode</autogen>
   </item>
 </root>
