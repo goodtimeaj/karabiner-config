@@ -95,7 +95,7 @@
     <appendix>Shifts acts as parentheses when not used as modifiers.</appendix>
     <identifier>private.shifts_to_parens</identifier>
 
-    <!-- Credits: @terryma https://github.com/terryma/dotfiles/blob/master/.KeyRemap4MacBook/private.xml -->
+    <!-- Thanks: @terryma https://github.com/terryma/dotfiles/blob/master/.KeyRemap4MacBook/private.xml -->
 
     <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
     <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R</autogen>
@@ -371,5 +371,64 @@
       KeyCode::P, ModifierFlag::CONTROL_L,
       KeyCode::P, ModifierFlag::COMMAND_L
     </autogen>
+  </item>
+  <item>
+    <name>Spotlight Mode</name>
+    <appendix>Doubles the execution of Escape when Spotlight is enabled with Command+Space.</appendix>
+    <identifier>private.spotlight_mode</identifier>
+
+    <!-- Thanks: @tekezo https://github.com/tekezo/Files/blob/master/KeyRemap4MacBook/private.spotlight_mode/private.xml -->
+
+    <block>
+      <!-- When Spotlight Mode is inactive  -->
+      <config_not>notsave.private_spotlight_mode</config_not>
+
+      <!-- Turn Spotlight Mode on with Command+Space -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
+        KeyCode::VK_CONFIG_FORCE_ON_notsave_private_spotlight_mode,
+        Option::NOREPEAT
+      </autogen>
+    </block>
+
+    <block>
+      <!-- When Spotlight Mode is active -->
+      <config_only>notsave.private_spotlight_mode</config_only>
+
+      <autogen>
+        __KeyToKey__
+        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+        KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Spotlight Mode will be disabled with Return -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::RETURN,
+        KeyCode::RETURN,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+        Option::NOREPEAT
+      </autogen>
+
+      <!-- Close Spotlight with Escape -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::ESCAPE,
+
+        KeyCode::ESCAPE,
+        KeyCode::ESCAPE,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_spotlight_mode,
+
+        Option::NOREPEAT
+      </autogen>
+    </block>
+  </item>
+  <item hidden="true">
+    <identifier vk_config="true">notsave.private_spotlight_mode</identifier>
+    <autogen>__ShowStatusMessage__ Spotlight Mode</autogen>
   </item>
 </root>

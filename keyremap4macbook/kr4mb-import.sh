@@ -22,6 +22,8 @@ $cli set private.vim_for_browsers 1
 /bin/echo -n .
 $cli set private.vim_for_sublime_text 1
 /bin/echo -n .
+$cli set private.spotlight_mode 1
+/bin/echo -n .
 $cli set option.browsingmode_jk_scrollwheel 1
 /bin/echo -n .
 $cli set option.vimode_option_hjkl 1
