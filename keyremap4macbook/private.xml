@@ -64,11 +64,13 @@
         Option::NOREPEAT
       </autogen>
 
-      <!-- Close Spotlight and disable Spotlight Mode with PC_APPLICATION when not used as a modifier -->
+      <!--
+        Close Spotlight and disable Spotlight Mode with PC_APPLICATION when
+        not used as a modifier
+      -->
       <autogen>
         __KeyOverlaidModifier__
         KeyCode::PC_APPLICATION,
-
         KeyCode::CONTROL_L,
 
         KeyCode::ESCAPE,
@@ -247,54 +249,110 @@
     <identifier>private.vim_for_preview</identifier>
     <only>PREVIEW</only>
 
-    <!-- Down with Ctrl+J -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::J, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_DOWN
-    </autogen>
+    <block>
+      <!-- When Preview Search Mode is inactive -->
+      <config_not>notsave.private_preview_search_mode</config_not>
 
-    <!-- Up with Ctrl+K -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::K, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_UP
-    </autogen>
+      <!-- Down with J -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::J,
+        KeyCode::CURSOR_DOWN
+      </autogen>
 
-    <!-- Page down with Ctrl+D -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::D, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L
-    </autogen>
+      <!-- Up with K -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::K,
+        KeyCode::CURSOR_UP
+      </autogen>
 
-    <!-- Page up with Ctrl+U -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::U, ModifierFlag::CONTROL_L,
-      KeyCode::CURSOR_UP, ModifierFlag::OPTION_L
-    </autogen>
+      <!-- Page down with D -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::D,
+        KeyCode::CURSOR_DOWN, ModifierFlag::OPTION_L
+      </autogen>
 
-    <!-- Search with / -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::SLASH,
-      KeyCode::F, ModifierFlag::COMMAND_L
-    </autogen>
+      <!-- Page up with U -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::U,
+        KeyCode::CURSOR_UP, ModifierFlag::OPTION_L
+      </autogen>
 
-    <!-- Search next with Ctrl+N -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::N, ModifierFlag::CONTROL_L,
-      KeyCode::G, ModifierFlag::COMMAND_L
-    </autogen>
+      <!-- First page with G -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::G, ModifierFlag::NONE,
 
-    <!-- Search previous with Ctrl+Shift+N -->
-    <autogen>
-      __KeyToKey__
-      KeyCode::N, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
-      KeyCode::G, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_R
-    </autogen>
+        KeyCode::G, ModifierFlag::COMMAND_R | ModifierFlag::OPTION_R,
+        KeyCode::KEY_1,
+        KeyCode::RETURN
+      </autogen>
+
+      <!-- Enter Preview Search Mode with / -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SLASH,
+
+        KeyCode::F, ModifierFlag::COMMAND_L,
+        KeyCode::VK_CONFIG_FORCE_ON_notsave_private_preview_search_mode,
+
+        Option::NOREPEAT
+      </autogen>
+    </block>
+
+    <block>
+      <!-- When Preview Search Mode is active -->
+      <config_only>notsave.private_preview_search_mode</config_only>
+
+      <!-- Down search results with Ctrl+J -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::J, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_DOWN
+      </autogen>
+
+      <!-- Up search results with Ctrl+K -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::K, ModifierFlag::CONTROL_L,
+        KeyCode::CURSOR_UP
+      </autogen>
+
+      <!-- Search next with Ctrl+N -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::N, ModifierFlag::CONTROL_L,
+        KeyCode::G, ModifierFlag::COMMAND_L
+      </autogen>
+
+      <!-- Search previous with Ctrl+Shift+N -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::N, ModifierFlag::CONTROL_L | ModifierFlag::SHIFT_R,
+        KeyCode::G, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_R
+      </autogen>
+
+      <!--
+        Disable Preview Search Mode and Escape from any part of the
+        search bar with Escape
+      -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::ESCAPE,
+
+        KeyCode::ESCAPE,
+        KeyCode::TAB,
+        KeyCode::TAB,
+        KeyCode::ESCAPE,
+        KeyCode::TAB,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_preview_search_mode,
+
+        Option::NOREPEAT
+      </autogen>
+    </block>
 
     <!-- Go to page with Ctrl+P -->
     <autogen>
@@ -302,6 +360,36 @@
       KeyCode::P, ModifierFlag::CONTROL_L,
       KeyCode::G, ModifierFlag::COMMAND_R | ModifierFlag::OPTION_R
     </autogen>
+
+    <!-- History back with Ctrl+[ -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_LEFT, ModifierFlag::CONTROL_L,
+      KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R
+    </autogen>
+
+    <!-- History forward with Ctrl+] -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_RIGHT, ModifierFlag::CONTROL_L,
+      KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
+    </autogen>
+
+    <!-- Disable Cmd+Bracket because Ctrl+Bracket is preferred -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_LEFT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
+      KeyCode::VK_NONE
+    </autogen>
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_RIGHT, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
+      KeyCode::VK_NONE
+    </autogen>
+  </item>
+  <item hidden="true">
+    <identifier vk_config="true">notsave.private_preview_search_mode</identifier>
+    <autogen>__ShowStatusMessage__ Preview Search Mode</autogen>
   </item>
   <item>
     <name>Vim for Finder</name>
@@ -508,14 +596,14 @@
       KeyCode::V, ModifierFlag::COMMAND_R
     </autogen>
 
-    <!-- Back history with Ctrl+[ -->
+    <!-- History back with Ctrl+[ -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_LEFT, ModifierFlag::CONTROL_L,
       KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R
     </autogen>
 
-    <!-- Forward history with Ctrl+] -->
+    <!-- History forward with Ctrl+] -->
     <autogen>
       __KeyToKey__
       KeyCode::BRACKET_RIGHT, ModifierFlag::CONTROL_L,
