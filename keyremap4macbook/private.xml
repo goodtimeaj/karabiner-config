@@ -211,16 +211,35 @@
 
     <!-- Thanks: @terryma https://github.com/terryma/dotfiles/blob/master/.KeyRemap4MacBook/private.xml -->
 
-    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
-    <autogen>--KeyOverlaidModifier-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE, KeyCode::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_R</autogen>
+    <autogen>
+      --KeyOverlaidModifier--
+      KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+      KeyCode::SHIFT_R,
+      KeyCode::KEY_0, ModifierFlag::SHIFT_L
+    </autogen>
+    <autogen>
+      --KeyOverlaidModifier--
+      KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+      KeyCode::SHIFT_L,
+      KeyCode::KEY_9, ModifierFlag::SHIFT_R
+    </autogen>
 
     <!--
-      Remap the "rolls" of () and )( because it's too easy to hit one
-      before finishing the other, and there's no other reason to be
-      pressing both shift keys at once anyway.
+      Remap the "rolls" of () and )( because it's too easy to hit one before
+      finishing the other, and there's no other reason to be pressing both
+      shift keys at once anyway.
     -->
-    <autogen>--KeyToKey-- KeyCode::SHIFT_L, ModifierFlag::SHIFT_R, KeyCode::KEY_0, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L</autogen>
-    <autogen>--KeyToKey-- KeyCode::SHIFT_R, ModifierFlag::SHIFT_L, KeyCode::KEY_9, ModifierFlag::SHIFT_L, KeyCode::KEY_0, ModifierFlag::SHIFT_L</autogen>
+    <autogen>
+      --KeyToKey--
+      KeyCode::SHIFT_L, ModifierFlag::SHIFT_R,
+      KeyCode::KEY_0, ModifierFlag::SHIFT_L,
+      KeyCode::KEY_9, ModifierFlag::SHIFT_L
+    </autogen>
+    <autogen>--KeyToKey--
+      KeyCode::SHIFT_R, ModifierFlag::SHIFT_L,
+      KeyCode::KEY_9, ModifierFlag::SHIFT_L,
+      KeyCode::KEY_0, ModifierFlag::SHIFT_L
+    </autogen>
   </item>
   <item>
     <name>Vim for Preview</name>
