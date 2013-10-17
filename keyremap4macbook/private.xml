@@ -523,8 +523,6 @@
     <identifier>private.vim_for_browsers</identifier>
     <only>GOOGLE_CHROME,FIREFOX,SAFARI,OPERA</only>
 
-    <!-- Some sites override J and K bindings used in Vimium, so use these -->
-
     <!-- Left with Ctrl+H -->
     <autogen>
       __KeyToKey__
@@ -608,6 +606,15 @@
       __KeyToKey__
       KeyCode::BRACKET_RIGHT, ModifierFlag::CONTROL_L,
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
+    </autogen>
+
+    <!-- Open a new tab and kill the previous one with Ctrl+T -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::T, ModifierFlag::CONTROL_L,
+      KeyCode::T, ModifierFlag::COMMAND_R,
+      KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R,
+      KeyCode::W, ModifierFlag::COMMAND_R
     </autogen>
   </item>
   <item>
