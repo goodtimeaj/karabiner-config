@@ -478,6 +478,20 @@
       KeyCode::P, ModifierFlag::CONTROL_L,
       KeyCode::G, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R
     </autogen>
+
+    <!-- History back with Ctrl+[ -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_LEFT, ModifierFlag::CONTROL_L,
+      KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R
+    </autogen>
+
+    <!-- History forward with Ctrl+] -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_RIGHT, ModifierFlag::CONTROL_L,
+      KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
+    </autogen>
   </item>
 
   <item>
