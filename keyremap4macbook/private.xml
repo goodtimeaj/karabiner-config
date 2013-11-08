@@ -123,6 +123,7 @@
     <identifier vk_config="true">notsave.private_spotlight_mode</identifier>
     <autogen>__ShowStatusMessage__ Spotlight Mode</autogen>
   </item>
+
   <item>
     <name>PC Application Key to Control or Escape</name>
     <appendix>PC Application Key acts as Control or acts as Escape when not used as a modifier.</appendix>
@@ -161,6 +162,7 @@
       KeyCode::VK_NONE
     </autogen>
   </item>
+
   <item>
     <name>Use Correct Command</name>
     <appendix>Forces use of Command_R as the correct Command for some keys on the left side.</appendix>
@@ -206,6 +208,7 @@
       KeyCode::VK_NONE
     </autogen>
   </item>
+
   <item>
     <name>Shifts to Parentheses</name>
     <appendix>Shifts acts as parentheses when not used as modifiers.</appendix>
@@ -243,6 +246,7 @@
       KeyCode::KEY_0, ModifierFlag::SHIFT_L
     </autogen>
   </item>
+
   <item>
     <name>Vim for Preview</name>
     <appendix>Provides some Vim-like bindings for Preview.</appendix>
@@ -391,6 +395,7 @@
     <identifier vk_config="true">notsave.private_preview_search_mode</identifier>
     <autogen>__ShowStatusMessage__ Preview Search Mode</autogen>
   </item>
+
   <item>
     <name>Vim for Finder</name>
     <appendix>Provides some Vim-like bindings for Finder.</appendix>
@@ -474,9 +479,10 @@
       KeyCode::G, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R
     </autogen>
   </item>
+
   <item>
     <name>Readline for Browsers</name>
-    <appendix>Fills in some missing readline bindings for browsers.</appendix>
+    <appendix>Fills in some missing readline-like bindings for browsers.</appendix>
     <identifier>private.readline_for_browsers</identifier>
     <only>GOOGLE_CHROME,FIREFOX,SAFARI,OPERA</only>
 
@@ -498,7 +504,7 @@
       KeyCode::DELETE
     </autogen>
 
-    <!-- Go to end of Address Bar with Ctrl+R -->
+    <!-- Go to end of the address bar with Ctrl+R -->
     <autogen>
       __KeyToKey__
       KeyCode::R, ModifierFlag::CONTROL_L,
@@ -506,7 +512,7 @@
       KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L
     </autogen>
 
-    <!-- Exit Address Bar with Ctrl+G -->
+    <!-- Exit the address bar with Ctrl+G -->
     <autogen>
       __KeyToKey__
       KeyCode::G, ModifierFlag::CONTROL_L,
@@ -517,6 +523,7 @@
       KeyCode::ESCAPE
     </autogen>
   </item>
+
   <item>
     <name>Vim for browsers</name>
     <appendix>Provides some Vim-like bindings for browsers.</appendix>
@@ -551,7 +558,7 @@
       KeyCode::CURSOR_RIGHT
     </autogen>
 
-    <!-- Go to Address Bar with Ctrl+P -->
+    <!-- Go to the address bar with Ctrl+P -->
     <autogen>
       __KeyToKey__
       KeyCode::P, ModifierFlag::CONTROL_L,
@@ -575,7 +582,7 @@
       KeyCode::C, ModifierFlag::COMMAND_R
     </autogen>
 
-    <!-- Yank Address Bar then exit with Ctrl+Y -->
+    <!-- Yank the address bar then exit with Ctrl+Y -->
     <autogen>
       __KeyToKey__
       KeyCode::Y, ModifierFlag::CONTROL_L,
@@ -608,15 +615,34 @@
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
     </autogen>
 
-    <!-- Open a new tab and kill the previous one with Ctrl+T -->
+    <!-- Open a new tab and kill the previous one with Ctrl+N -->
     <autogen>
       __KeyToKey__
-      KeyCode::T, ModifierFlag::CONTROL_L,
+      KeyCode::N, ModifierFlag::CONTROL_L,
       KeyCode::T, ModifierFlag::COMMAND_R,
       KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R,
       KeyCode::W, ModifierFlag::COMMAND_R
     </autogen>
+
+    <!-- Duplicate the current tab with Ctrl+T -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::T, ModifierFlag::CONTROL_L,
+
+      <!-- Yank the current address bar then exit -->
+      KeyCode::L, ModifierFlag::COMMAND_R,
+      KeyCode::C, ModifierFlag::COMMAND_R,
+      KeyCode::TAB,
+      KeyCode::TAB,
+      KeyCode::ESCAPE,
+
+      <!-- Open a new tab and paste the address -->
+      KeyCode::T, ModifierFlag::COMMAND_R,
+      KeyCode::V, ModifierFlag::COMMAND_R,
+      KeyCode::RETURN
+    </autogen>
   </item>
+
   <item>
     <name>Vim for Sublime Text</name>
     <appendix>Provides some Vim-like bindings for Sublime Text.</appendix>
