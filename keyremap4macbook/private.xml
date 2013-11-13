@@ -135,6 +135,7 @@
       KeyCode::ESCAPE
     </autogen>
   </item>
+
   <item>
     <name>Command+Bracket to Command+Shift+Bracket</name>
     <appendix>Aliases Command+Bracket as Command+Shift+Bracket for common tabbable apps.</appendix>
@@ -631,7 +632,7 @@
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
     </autogen>
 
-    <!-- Open a new tab and kill the previous one with Ctrl+N -->
+    <!-- Open a new tab and kill the last tab with Ctrl+N -->
     <autogen>
       __KeyToKey__
       KeyCode::N, ModifierFlag::CONTROL_L,
