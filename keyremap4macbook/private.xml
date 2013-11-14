@@ -17,7 +17,7 @@
         KeyCode::ESCAPE
       </autogen>
 
-      <!-- Enable Spotlight Mode with Ctrl+Space -->
+      <!-- Enable mode with Ctrl+Space -->
       <autogen>
         __KeyToKey__
         KeyCode::SPACE, ModifierFlag::CONTROL_L,
@@ -27,7 +27,7 @@
         Option::NOREPEAT
       </autogen>
 
-      <!-- Enable Spotlight Mode with Cmd+Space -->
+      <!-- Enable mode with Cmd+Space -->
       <autogen>
         __KeyToKey__
         KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
@@ -42,7 +42,7 @@
       <!-- When Spotlight Mode is active -->
       <config_only>notsave.private_spotlight_mode</config_only>
 
-      <!-- Disable Spotlight Mode with Return -->
+      <!-- Disable Mode with Return -->
       <autogen>
         __KeyToKey__
         KeyCode::RETURN,
@@ -52,7 +52,7 @@
         Option::NOREPEAT
       </autogen>
 
-      <!-- Close Spotlight and disable Spotlight Mode with Escape -->
+      <!-- Close Spotlight and disable mode with Escape -->
       <autogen>
         __KeyToKey__
         KeyCode::ESCAPE,
@@ -65,7 +65,7 @@
       </autogen>
 
       <!--
-        Close Spotlight and disable Spotlight Mode with PC_APPLICATION when
+        Close Spotlight and disable mode with PC_APPLICATION when
         not used as a modifier
       -->
       <autogen>
@@ -80,7 +80,7 @@
         Option::NOREPEAT
       </autogen>
 
-      <!-- Close Spotlight and disable Spotlight Mode with Ctrl+Space -->
+      <!-- Close Spotlight and disable mode with Ctrl+Space -->
       <autogen>
         __KeyToKey__
         KeyCode::SPACE, ModifierFlag::CONTROL_L,
@@ -92,7 +92,7 @@
         Option::NOREPEAT
       </autogen>
 
-      <!-- Disable Spotlight Mode with Cmd+Space -->
+      <!-- Disable mode with Cmd+Space -->
       <autogen>
         __KeyToKey__
         KeyCode::SPACE, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND,
@@ -211,6 +211,76 @@
   </item>
 
   <item>
+    <name>Shifts to Angle Brackets Mode</name>
+    <appendix>Hold Comma+Command_R to toggle shifts to angle brackets.</appendix>
+    <identifier>private.shifts_to_angle_brackets_mode</identifier>
+    <block>
+      <!-- When Shifts to Angle Brackets Mode is inactive  -->
+      <config_not>notsave.private_shifts_to_angle_brackets_mode</config_not>
+
+      <!-- Enable mode by holding Comma+Command+R -->
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::COMMA, ModifierFlag::COMMAND_R,
+        KeyCode::COMMA, ModifierFlag::COMMAND_R,
+        KeyCode::VK_NONE,
+        KeyCode::VK_CONFIG_FORCE_ON_notsave_private_shifts_to_angle_brackets_mode,
+        Option::NOREPEAT
+      </autogen>
+    </block>
+
+    <block>
+      <!-- When Shifts to Angle Brackets Mode is active  -->
+      <config_only>notsave.private_shifts_to_angle_brackets_mode</config_only>
+
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE,
+        KeyCode::SHIFT_R,
+        KeyCode::DOT, ModifierFlag::SHIFT_L
+      </autogen>
+      <autogen>
+        __KeyOverlaidModifier__
+        KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
+        KeyCode::SHIFT_L,
+        KeyCode::COMMA, ModifierFlag::SHIFT_R
+      </autogen>
+
+      <!--
+        Remap the "rolls" of <> and >< because it's too easy to hit one before
+        finishing the other, and there's no other reason to be pressing both
+        shift keys at once anyway.
+      -->
+      <autogen>
+        __KeyToKey__
+        KeyCode::SHIFT_L, ModifierFlag::SHIFT_R,
+        KeyCode::DOT, ModifierFlag::SHIFT_L,
+        KeyCode::COMMA, ModifierFlag::SHIFT_L
+      </autogen>
+      <autogen>
+        __KeyToKey__
+        KeyCode::SHIFT_R, ModifierFlag::SHIFT_L,
+        KeyCode::COMMA, ModifierFlag::SHIFT_L,
+        KeyCode::DOT, ModifierFlag::SHIFT_L
+      </autogen>
+
+      <!-- Disable mode by holding Comma+Command+R -->
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::COMMA, ModifierFlag::COMMAND_R,
+        KeyCode::COMMA, ModifierFlag::COMMAND_R,
+        KeyCode::VK_NONE,
+        KeyCode::VK_CONFIG_FORCE_OFF_notsave_private_shifts_to_angle_brackets_mode,
+        Option::NOREPEAT
+      </autogen>
+    </block>
+  </item>
+  <item hidden="true">
+    <identifier vk_config="true">notsave.private_shifts_to_angle_brackets_mode</identifier>
+    <autogen>__ShowStatusMessage__ Shifts to Angle Brackets Mode</autogen>
+  </item>
+
+  <item>
     <name>Shifts to Parentheses</name>
     <appendix>Shifts acts as parentheses when not used as modifiers.</appendix>
     <identifier>private.shifts_to_parens</identifier>
@@ -218,13 +288,13 @@
     <!-- Thanks: @terryma https://github.com/terryma/dotfiles/blob/master/.KeyRemap4MacBook/private.xml -->
 
     <autogen>
-      --KeyOverlaidModifier--
+      __KeyOverlaidModifier__
       KeyCode::SHIFT_R, ModifierFlag::SHIFT_R | ModifierFlag::NONE,
       KeyCode::SHIFT_R,
       KeyCode::KEY_0, ModifierFlag::SHIFT_L
     </autogen>
     <autogen>
-      --KeyOverlaidModifier--
+      __KeyOverlaidModifier__
       KeyCode::SHIFT_L, ModifierFlag::SHIFT_L | ModifierFlag::NONE,
       KeyCode::SHIFT_L,
       KeyCode::KEY_9, ModifierFlag::SHIFT_R
@@ -236,12 +306,13 @@
       shift keys at once anyway.
     -->
     <autogen>
-      --KeyToKey--
+      __KeyToKey__
       KeyCode::SHIFT_L, ModifierFlag::SHIFT_R,
       KeyCode::KEY_0, ModifierFlag::SHIFT_L,
       KeyCode::KEY_9, ModifierFlag::SHIFT_L
     </autogen>
-    <autogen>--KeyToKey--
+    <autogen>
+      __KeyToKey__
       KeyCode::SHIFT_R, ModifierFlag::SHIFT_L,
       KeyCode::KEY_9, ModifierFlag::SHIFT_L,
       KeyCode::KEY_0, ModifierFlag::SHIFT_L
@@ -342,7 +413,7 @@
 
       <!--
         Disable Preview Search Mode and Escape from any part of the
-        search bar with Escape
+        search input with Escape
       -->
       <autogen>
         __KeyToKey__

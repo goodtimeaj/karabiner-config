@@ -12,6 +12,8 @@ $cli set private.correct_command 1
 /bin/echo -n .
 $cli set private.shifts_to_parens 1
 /bin/echo -n .
+$cli set private.shifts_to_angle_brackets_mode 1
+/bin/echo -n .
 $cli set private.vim_for_preview 1
 /bin/echo -n .
 $cli set private.vim_for_finder 1
