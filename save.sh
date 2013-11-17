@@ -1,11 +1,12 @@
-#!/bin/sh
+#!/bin/bash
 #
-# Saves KeyRemap4MacBook settings to this repository.
+# Saves KeyRemap4MacBook settings and PCKEyboardHack preferences to this
+# repository.
 
-HERE=$(dirname "$0") && HERE=$(cd "$HERE" && pwd -P)
+here=$(dirname "$0") && here=$(cd "$here" && pwd -P)
 
 # Save KeyRemap4MacBook preferences
-/Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli export > "$HERE/keyremap4macbook/kr4mb-import.sh"
+"/Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli" export > "${here}/keyremap4macbook/kr4mb-import.sh"
 
 # Save PCKeyboardHack preferences
-cp "$HOME/Library/Preferences/org.pqrs.PCKeyboardHack.plist" "$HERE/pckeyboardhack/org.pqrs.PCKeyboardHack.plist"
+cp -v "${HOME}/Library/Preferences/org.pqrs.PCKeyboardHack.plist" "${here}/pckeyboardhack/org.pqrs.PCKeyboardHack.plist"
