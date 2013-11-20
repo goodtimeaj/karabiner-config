@@ -603,11 +603,24 @@
       __KeyToKey__
       KeyCode::G, ModifierFlag::CONTROL_L,
 
-      KeyCode::ESCAPE,
-      KeyCode::TAB,
-      KeyCode::TAB,
-      KeyCode::VK_WAIT_100MS,
-      KeyCode::ESCAPE
+      <!-- KeyCode::ESCAPE, -->
+      <!-- KeyCode::TAB, -->
+      <!-- KeyCode::TAB, -->
+      <!-- KeyCode::VK_WAIT_100MS, -->
+      <!-- KeyCode::ESCAPE -->
+      KeyCode::L, ModifierFlag::COMMAND_R,
+      KeyCode::J,
+      KeyCode::A,
+      KeyCode::V,
+      KeyCode::A,
+      KeyCode::S,
+      KeyCode::C,
+      KeyCode::R,
+      KeyCode::I,
+      KeyCode::P,
+      KeyCode::T,
+      KeyCode::SEMICOLON,
+      KeyCode::ENTER
     </autogen>
   </item>
 
@@ -676,10 +689,22 @@
 
       KeyCode::L, ModifierFlag::COMMAND_R,
       KeyCode::C, ModifierFlag::COMMAND_R,
-      KeyCode::TAB,
-      KeyCode::TAB,
-      KeyCode::VK_WAIT_100MS,
-      KeyCode::ESCAPE
+      <!-- KeyCode::TAB, -->
+      <!-- KeyCode::TAB, -->
+      <!-- KeyCode::VK_WAIT_100MS, -->
+      <!-- KeyCode::ESCAPE -->
+      KeyCode::J,
+      KeyCode::A,
+      KeyCode::V,
+      KeyCode::A,
+      KeyCode::S,
+      KeyCode::C,
+      KeyCode::R,
+      KeyCode::I,
+      KeyCode::P,
+      KeyCode::T,
+      KeyCode::SEMICOLON,
+      KeyCode::ENTER
     </autogen>
 
     <!-- Paste with Ctrl+V -->
@@ -720,10 +745,22 @@
       <!-- Yank the current address bar then exit -->
       KeyCode::L, ModifierFlag::COMMAND_R,
       KeyCode::C, ModifierFlag::COMMAND_R,
-      KeyCode::TAB,
-      KeyCode::TAB,
-      KeyCode::VK_WAIT_100MS,
-      KeyCode::ESCAPE,
+      <!-- KeyCode::TAB, -->
+      <!-- KeyCode::TAB, -->
+      <!-- KeyCode::VK_WAIT_100MS, -->
+      <!-- KeyCode::ESCAPE, -->
+      KeyCode::J,
+      KeyCode::A,
+      KeyCode::V,
+      KeyCode::A,
+      KeyCode::S,
+      KeyCode::C,
+      KeyCode::R,
+      KeyCode::I,
+      KeyCode::P,
+      KeyCode::T,
+      KeyCode::SEMICOLON,
+      KeyCode::ENTER,
 
       <!-- Open a new tab and paste the address -->
       KeyCode::T, ModifierFlag::COMMAND_R,
