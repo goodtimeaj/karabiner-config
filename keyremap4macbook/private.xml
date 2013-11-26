@@ -728,10 +728,11 @@
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
     </autogen>
 
-    <!-- Open a new tab and kill the last tab with Ctrl+N -->
+    <!-- Open a new tab and kill the last tab with Ctrl+Q -->
     <autogen>
       __KeyToKey__
-      KeyCode::N, ModifierFlag::CONTROL_L,
+      KeyCode::Q, ModifierFlag::CONTROL_L,
+
       KeyCode::T, ModifierFlag::COMMAND_R,
       KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R | ModifierFlag::SHIFT_R,
       KeyCode::W, ModifierFlag::COMMAND_R
