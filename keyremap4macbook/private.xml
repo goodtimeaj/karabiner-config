@@ -625,7 +625,7 @@
   </item>
 
   <item>
-    <name>Vim for browsers</name>
+    <name>Vim for Browsers</name>
     <appendix>Provides some Vim-like bindings for browsers.</appendix>
     <identifier>private.vim_for_browsers</identifier>
     <only>GOOGLE_CHROME,FIREFOX,SAFARI,OPERA</only>
@@ -767,6 +767,54 @@
       KeyCode::T, ModifierFlag::COMMAND_R,
       KeyCode::V, ModifierFlag::COMMAND_R,
       KeyCode::RETURN
+    </autogen>
+
+    <!-- Position the mouse over a link and hold Command+R + . to copy it into the next href in Vim -->
+    <autogen>
+      __HoldingKeyToKey__
+      KeyCode::DOT, ModifierFlag::COMMAND_R,
+      KeyCode::DOT, ModifierFlag::COMMAND_R,
+      KeyCode::VK_NONE,
+
+      <!-- Wait to switch tabs and yank the address bar of the new tab -->
+      KeyCode::VK_MOUSEKEY_BUTTON_MIDDLE,
+      KeyCode::VK_WAIT_100MS,
+      KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      KeyCode::VK_WAIT_100MS,
+      KeyCode::L, ModifierFlag::COMMAND_R,
+      KeyCode::C, ModifierFlag::COMMAND_R,
+      KeyCode::VK_WAIT_100MS,
+
+      <!-- Kill the current tab -->
+      KeyCode::W, ModifierFlag::COMMAND_R,
+
+      <!-- Switch to Terminal which needs to be the next application -->
+      KeyCode::TAB, ModifierFlag::COMMAND_R,
+
+      <!-- And copy the contents of the clipboard into the first found href on the current line in Vim -->
+      KeyCode::VK_WAIT_100MS,
+      KeyCode::KEY_0,
+      KeyCode::KEY_6, ModifierFlag::SHIFT_R,
+      KeyCode::VK_WAIT_100MS,
+      KeyCode::SLASH,
+      KeyCode::H,
+      KeyCode::R,
+      KeyCode::E,
+      KeyCode::F,
+      KeyCode::RETURN,
+      KeyCode::RETURN,
+      KeyCode::F,
+      KeyCode::QUOTE, ModifierFlag::SHIFT_R,
+      KeyCode::V,
+      KeyCode::I,
+      KeyCode::QUOTE, ModifierFlag::SHIFT_R,
+      KeyCode::P,
+      KeyCode::J,
+
+      <!-- Switch back to the browser when done -->
+      KeyCode::TAB, ModifierFlag::COMMAND_R,
+
+      Option::NOREPEAT
     </autogen>
   </item>
 
