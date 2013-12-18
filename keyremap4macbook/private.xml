@@ -137,6 +137,39 @@
   </item>
 
   <item>
+    <name>Chrome DevTools Shortcuts</name>
+    <appendix>Provides some helpful bindings for Chrome DevTools.</appendix>
+    <identifier>private.shortcuts_for_chrome_devtools</identifier>
+    <only>GOOGLE_CHROME</only>
+
+    <!-- Open JavaScript Console with Ctrl+I -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::I, ModifierFlag::CONTROL_L,
+      KeyCode::J, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
+    </autogen>
+
+    <!--
+      Remap Command+Shift+Bracket to switch panels in DevTools before remapping
+      the opposite for all tabbable apps in the following autogen.
+    -->
+
+    <!-- Alias for Bracket_L -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      KeyCode::BRACKET_LEFT, ModifierFlag::COMMAND_R
+    </autogen>
+
+    <!-- Alias for Bracket_R -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
+    </autogen>
+  </item>
+
+  <item>
     <name>Command+Bracket to Command+Shift+Bracket</name>
     <appendix>Aliases Command+Bracket as Command+Shift+Bracket for common tabbable apps.</appendix>
     <identifier>private.shortcut_command_shift_bracket</identifier>
@@ -769,7 +802,10 @@
       KeyCode::RETURN
     </autogen>
 
-    <!-- Position the mouse over a link and hold Command+R + . to copy it into the next href in Vim -->
+    <!--
+      Position the mouse over a link and hold Command+R + . to copy it into
+      the next href in Vim
+    -->
     <autogen>
       __HoldingKeyToKey__
       KeyCode::DOT, ModifierFlag::COMMAND_R,
@@ -791,7 +827,10 @@
       <!-- Switch to Terminal which needs to be the next application -->
       KeyCode::TAB, ModifierFlag::COMMAND_R,
 
-      <!-- And copy the contents of the clipboard into the first found href on the current line in Vim -->
+      <!--
+        And copy the contents of the clipboard into the first found href on
+        the current line in Vim
+      -->
       KeyCode::VK_WAIT_100MS,
       KeyCode::KEY_0,
       KeyCode::KEY_6, ModifierFlag::SHIFT_R,
