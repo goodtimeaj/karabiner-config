@@ -877,4 +877,41 @@
       KeyCode::P, ModifierFlag::COMMAND_L
     </autogen>
   </item>
+
+  <item>
+    <name>Readline for Outlook</name>
+    <appendix>Fills in some missing readline-like bindings for Outlook.</appendix>
+    <identifier>private.readline_for_outlook</identifier>
+    <only>OUTLOOK</only>
+
+    <!-- Delete previous word with Ctrl+W -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::W, ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_LEFT, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L,
+      KeyCode::DELETE
+    </autogen>
+
+    <!-- Delete line to beginning with Ctrl+U -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::U, ModifierFlag::CONTROL_L,
+      KeyCode::CURSOR_LEFT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
+      KeyCode::DELETE
+    </autogen>
+
+    <!-- Add my signature with Ctrl+G -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::G, ModifierFlag::CONTROL_L,
+
+      KeyCode::RETURN,
+      KeyCode::BACKQUOTE, ModifierFlag::SHIFT_R,
+      KeyCode::SPACE,
+      KeyCode::G, ModifierFlag::SHIFT_R,
+      KeyCode::R,
+      KeyCode::E,
+      KeyCode::G
+    </autogen>
+  </item>
 </root>

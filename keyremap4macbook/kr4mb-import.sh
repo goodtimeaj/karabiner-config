@@ -26,6 +26,8 @@ $cli set private.shortcuts_for_chrome_devtools 1
 /bin/echo -n .
 $cli set private.vim_for_sublime_text 1
 /bin/echo -n .
+$cli set private.readline_for_outlook 1
+/bin/echo -n .
 $cli set option.browsingmode_jk_scrollwheel 1
 /bin/echo -n .
 $cli set option.vimode_option_hjkl 1
