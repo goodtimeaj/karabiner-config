@@ -900,18 +900,39 @@
       KeyCode::DELETE
     </autogen>
 
+    <!-- Yank with Ctrl+C -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::C, ModifierFlag::CONTROL_L,
+      KeyCode::C, ModifierFlag::COMMAND_R
+    </autogen>
+
+    <!-- Paste with Ctrl+V -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::V, ModifierFlag::CONTROL_L,
+      KeyCode::V, ModifierFlag::COMMAND_R
+    </autogen>
+
     <!-- Add my signature with Ctrl+G -->
     <autogen>
       __KeyToKey__
       KeyCode::G, ModifierFlag::CONTROL_L,
 
       KeyCode::RETURN,
+      KeyCode::RETURN,
+
+      <!-- Random character to erase since Outlook continues annoying link highlighting -->
+      KeyCode::A,
+      KeyCode::DELETE,
+
       KeyCode::BACKQUOTE, ModifierFlag::SHIFT_R,
       KeyCode::SPACE,
       KeyCode::G, ModifierFlag::SHIFT_R,
       KeyCode::R,
       KeyCode::E,
-      KeyCode::G
+      KeyCode::G,
+      KeyCode::RETURN
     </autogen>
   </item>
 </root>
