@@ -921,9 +921,12 @@
 
       KeyCode::RETURN,
       KeyCode::RETURN,
+      KeyCode::RETURN,
 
       <!-- Random character to erase since Outlook continues annoying link highlighting -->
-      KeyCode::A,
+      KeyCode::SPACE,
+      KeyCode::SPACE,
+      KeyCode::DELETE,
       KeyCode::DELETE,
 
       KeyCode::BACKQUOTE, ModifierFlag::SHIFT_R,
