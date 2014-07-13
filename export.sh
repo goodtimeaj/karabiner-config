@@ -1,14 +1,13 @@
-#!/bin/bash
-#
-# Exports KeyRemap4MacBook settings and PCKeyboardHack preferences.
+#!/bin/sh
+# Exports Karabiner settings and Seil preferences.
 
 here=$(dirname "$0") && here=$(cd "$here" && pwd -P)
 
-# Export general settings (KeyRemap4MacBook must be open)
-sh "${here}/keyremap4macbook/kr4mb-import.sh"
+# Link Karabiner private.xml settings
+ln -sfv "${here}/karabiner/private.xml" "${HOME}/Library/Application Support/Karabiner/private.xml"
 
-# Link KeyRemap4MacBook private.xml settings
-ln -sfv "${here}/keyremap4macbook/private.xml" "${HOME}/Library/Application Support/KeyRemap4MacBook"
+# Copy Seil preferences
+cp -v "${here}/seil/org.pqrs.Seil.plist" "${HOME}/Library/Preferences/org.pqrs.Seil.plist"
 
-# Copy PCKeyboardHack preferences
-cp -v "${here}/pckeyboardhack/org.pqrs.PCKeyboardHack.plist" "${HOME}/Library/Preferences/org.pqrs.PCKeyboardHack.plist"
+# Export Karabiner settings (Karabiner must be open)
+sh "${here}/karabiner/karabiner-import.sh"

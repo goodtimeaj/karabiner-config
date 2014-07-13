@@ -1,12 +1,10 @@
-#!/bin/bash
-#
-# Saves KeyRemap4MacBook settings and PCKEyboardHack preferences to this
-# repository.
+#!/bin/sh
+# Saves Karabiner settings and Seil preferences to this repository.
 
 here=$(dirname "$0") && here=$(cd "$here" && pwd -P)
 
-# Save KeyRemap4MacBook preferences
-"/Applications/KeyRemap4MacBook.app/Contents/Applications/KeyRemap4MacBook_cli.app/Contents/MacOS/KeyRemap4MacBook_cli" export > "${here}/keyremap4macbook/kr4mb-import.sh"
+# Save Karabiner preferences
+"/Applications/Karabiner.app/Contents/Library/bin/karabiner" export > "${here}/karabiner/karabiner-import.sh"
 
-# Save PCKeyboardHack preferences
-cp -v "${HOME}/Library/Preferences/org.pqrs.PCKeyboardHack.plist" "${here}/pckeyboardhack/org.pqrs.PCKeyboardHack.plist"
+# Save Seil preferences
+cp -v "${HOME}/Library/Preferences/org.pqrs.Seil.plist" "${here}/seil/org.pqrs.Seil.plist"
