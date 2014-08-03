@@ -636,24 +636,12 @@
       __KeyToKey__
       KeyCode::G, ModifierFlag::CONTROL_L,
 
-      <!-- KeyCode::ESCAPE, -->
-      <!-- KeyCode::TAB, -->
-      <!-- KeyCode::TAB, -->
-      <!-- KeyCode::VK_WAIT_100MS, -->
-      <!-- KeyCode::ESCAPE -->
-      KeyCode::L, ModifierFlag::COMMAND_R,
-      KeyCode::J,
-      KeyCode::A,
-      KeyCode::V,
-      KeyCode::A,
-      KeyCode::S,
-      KeyCode::C,
-      KeyCode::R,
-      KeyCode::I,
-      KeyCode::P,
-      KeyCode::T,
-      KeyCode::SEMICOLON,
-      KeyCode::ENTER
+      KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L,
+      KeyCode::ESCAPE,
+      KeyCode::TAB,
+      KeyCode::TAB,
+      KeyCode::VK_WAIT_100MS,
+      KeyCode::ESCAPE
     </autogen>
   </item>
 
@@ -722,22 +710,11 @@
 
       KeyCode::L, ModifierFlag::COMMAND_R,
       KeyCode::C, ModifierFlag::COMMAND_R,
-      <!-- KeyCode::TAB, -->
-      <!-- KeyCode::TAB, -->
-      <!-- KeyCode::VK_WAIT_100MS, -->
-      <!-- KeyCode::ESCAPE -->
-      KeyCode::J,
-      KeyCode::A,
-      KeyCode::V,
-      KeyCode::A,
-      KeyCode::S,
-      KeyCode::C,
-      KeyCode::R,
-      KeyCode::I,
-      KeyCode::P,
-      KeyCode::T,
-      KeyCode::SEMICOLON,
-      KeyCode::ENTER
+      KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L,
+      KeyCode::TAB,
+      KeyCode::TAB,
+      KeyCode::VK_WAIT_100MS,
+      KeyCode::ESCAPE
     </autogen>
 
     <!-- Paste with Ctrl+V -->
@@ -779,22 +756,11 @@
       <!-- Yank the current address bar then exit -->
       KeyCode::L, ModifierFlag::COMMAND_R,
       KeyCode::C, ModifierFlag::COMMAND_R,
-      <!-- KeyCode::TAB, -->
-      <!-- KeyCode::TAB, -->
-      <!-- KeyCode::VK_WAIT_100MS, -->
-      <!-- KeyCode::ESCAPE, -->
-      KeyCode::J,
-      KeyCode::A,
-      KeyCode::V,
-      KeyCode::A,
-      KeyCode::S,
-      KeyCode::C,
-      KeyCode::R,
-      KeyCode::I,
-      KeyCode::P,
-      KeyCode::T,
-      KeyCode::SEMICOLON,
-      KeyCode::ENTER,
+      KeyCode::CURSOR_RIGHT, ModifierFlag::COMMAND_L,
+      KeyCode::TAB,
+      KeyCode::TAB,
+      KeyCode::VK_WAIT_100MS,
+      KeyCode::ESCAPE,
 
       <!-- Open a new tab and paste the address -->
       KeyCode::T, ModifierFlag::COMMAND_R,
@@ -923,7 +889,7 @@
       KeyCode::RETURN,
       KeyCode::RETURN,
 
-      <!-- Random character to erase since Outlook continues annoying link highlighting -->
+      <!-- Random character to erase since Outlook carries link highlighting -->
       KeyCode::SPACE,
       KeyCode::SPACE,
       KeyCode::DELETE,
