@@ -142,10 +142,17 @@
     <identifier>private.shortcuts_for_chrome_devtools</identifier>
     <only>GOOGLE_CHROME</only>
 
-    <!-- Open JavaScript Console with Ctrl+I -->
+    <!-- Open DevTools with Ctrl+I -->
     <autogen>
       __KeyToKey__
       KeyCode::I, ModifierFlag::CONTROL_L,
+      KeyCode::I, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
+    </autogen>
+
+    <!-- Open JavaScript Console with Ctrl+O -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::O, ModifierFlag::CONTROL_L,
       KeyCode::J, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
     </autogen>
 
@@ -166,6 +173,56 @@
       __KeyToKey__
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_L | ModifierFlag::SHIFT_L,
       KeyCode::BRACKET_RIGHT, ModifierFlag::COMMAND_R
+    </autogen>
+  </item>
+
+  <item>
+    <name>Firefox DevTools Shortcuts</name>
+    <appendix>Provides some helpful bindings for Firefox DevTools.</appendix>
+    <identifier>private.shortcuts_for_firefox_devtools</identifier>
+    <only>FIREFOX</only>
+
+    <!-- Open DevTools with Ctrl+I -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::I, ModifierFlag::CONTROL_L,
+      KeyCode::I, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
+    </autogen>
+
+    <!-- Open JavaScript Console with Ctrl+O -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::O, ModifierFlag::CONTROL_L,
+      KeyCode::K, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
+    </autogen>
+
+    <!-- View Page Source with Option+Command+U -->
+    <!-- This makes the keybinding the same as in Chrome DevTools -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::U, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L,
+      KeyCode::U, ModifierFlag::COMMAND_L
+    </autogen>
+  </item>
+
+  <item>
+    <name>Safari DevTools Shortcuts</name>
+    <appendix>Provides some helpful bindings for Safari DevTools.</appendix>
+    <identifier>private.shortcuts_for_safari_devtools</identifier>
+    <only>SAFARI</only>
+
+    <!-- Open DevTools with Ctrl+I -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::I, ModifierFlag::CONTROL_L,
+      KeyCode::I, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
+    </autogen>
+
+    <!-- Open JavaScript Console with Ctrl+O -->
+    <autogen>
+      __KeyToKey__
+      KeyCode::O, ModifierFlag::CONTROL_L,
+      KeyCode::C, ModifierFlag::COMMAND_L | ModifierFlag::OPTION_L
     </autogen>
   </item>
 

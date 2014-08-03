@@ -24,6 +24,10 @@ $cli set private.readline_for_outlook 1
 /bin/echo -n .
 $cli set private.shortcuts_for_chrome_devtools 1
 /bin/echo -n .
+$cli set private.shortcuts_for_firefox_devtools 1
+/bin/echo -n .
+$cli set private.shortcuts_for_safari_devtools 1
+/bin/echo -n .
 $cli set private.vim_for_browsers 1
 /bin/echo -n .
 $cli set remap.tabmode 1
